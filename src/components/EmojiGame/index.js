@@ -27,7 +27,8 @@ class EmojiGame extends Component {
 
   check = name => {
     const {clickedEmoji, score, highScore} = this.state
-    if (!clickedEmoji.includes(name)) {
+    const element = clickedEmoji.find(each => each === name)
+    if (element === undefined) {
       this.setState(prev => ({
         clickedEmoji: [...prev.clickedEmoji, name],
         score: prev.score + 1,
